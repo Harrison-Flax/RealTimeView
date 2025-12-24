@@ -2,7 +2,7 @@
 A desktop application that can fetch stock indices, news articles, and crypto prices in real-time. A personal project.
 
 ## Overview
-Made with JavaFX, SpringBoot, and MongoDB
+Made with JavaFX, SpringBoot, and MongoDB.
 - JavaFX (Frontend):
   - UI for dekstop (using Windows for this), but should be comptabile with MacOS and Linux distros
   - Will fetch information and update in real-time with communication from SpringBoot
