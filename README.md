@@ -1,6 +1,6 @@
 ## RealTimeView
-A desktop application that can fetch stock indices, news articles, and crypto prices in real-time. A personal project.
 Part of my objective to greater learn Java, its utilites, and expand my database knowledge and implementations.
+Using SpringBoot here is imperative for linking calls and creating runnable and packaged Java software.
 
 ## Overview
 Made with JavaFX, SpringBoot, and PostgreSQL.
