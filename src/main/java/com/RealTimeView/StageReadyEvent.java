@@ -9,6 +9,6 @@ public class StageReadyEvent extends ApplicationEvent {
     }
 
     public Stage getStage() {
-        return (Stage) getSource();
+        return ((Stage) getSource());
     }
 }
