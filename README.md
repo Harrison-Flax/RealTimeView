@@ -5,7 +5,7 @@ Using Spring Boot here is imperative for linking calls and creating runnable and
 ## Overview
 Made with JavaFX, SpringBoot, and PostgreSQL.
 - ## JavaFX (Frontend): ##
-  - UI for dekstop (using Windows for this) but should be comptabile with MacOS and Linux distros
+  - UI for dekstop (using Windows for this) but should be comptabile with MacOS and Linux distros (will eventually create .dmg, .deb, and .exe installations for each)
   - Will fetch information and update in real-time with communication from SpringBoot
 - ## Spring Boot (Backend): ##
   - Communicates with PostgreSQL, API calls, and creating the local instance
