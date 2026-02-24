@@ -1,0 +1,3 @@
+Model = Corresponds to PostgreSQL Tables
+DTO = Records to REST endpoints
+Database schema should remain decoupled from API calls so APIs don't need to be changed
