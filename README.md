@@ -3,9 +3,9 @@ Part of my objective to greater learn Java, its utilites, and expand my database
 Using Spring Boot here is imperative for linking calls and creating runnable and packaged Java software.
 
 ## Overview
-Made with JavaFX, SpringBoot, and PostgreSQL.
+Made with Java, JavaFX, SpringBoot, and PostgreSQL.
 - ## JavaFX (Frontend): ##
-  - UI for dekstop (using Windows for this) but should be comptabile with MacOS and Linux distros
+  - UI for dekstop (using Windows for this) but should be comptabile with MacOS and Linux distros (will eventually create .dmg, .deb, and .exe installations for each)
   - Will fetch information and update in real-time with communication from SpringBoot
 - ## Spring Boot (Backend): ##
   - Communicates with PostgreSQL, API calls, and creating the local instance
@@ -18,3 +18,4 @@ Made with JavaFX, SpringBoot, and PostgreSQL.
 - Multi-Threaded Methods
 - Kubernetes for deployment only (Spring Boot and PostgreSQL Database)
 - Postman for debugging and testing APIs
+- ZeroClaw integration for summarization and daily recap
