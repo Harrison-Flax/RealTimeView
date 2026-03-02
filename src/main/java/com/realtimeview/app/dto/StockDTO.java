@@ -1,4 +1,13 @@
 package com.realtimeview.app.dto;
 
-public class StockDTO {
-}
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+public record StockDTO (
+    String ticker,
+    String name,
+    BigDecimal price,
+    BigDecimal change,
+    BigDecimal changePercent,
+    LocalDateTime lastUpdated
+) {}
