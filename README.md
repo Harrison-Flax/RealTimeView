@@ -18,4 +18,4 @@ Made with Java, JavaFX, SpringBoot, and PostgreSQL.
 - Multi-Threaded Methods
 - Kubernetes for deployment only (Spring Boot and PostgreSQL Database)
 - Postman for debugging and testing APIs
-- ZeroClaw integration for summarization and daily recap
+- Claude integration for summarization and daily recap (Will use Spring AI)
