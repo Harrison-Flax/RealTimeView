@@ -39,7 +39,7 @@ public class CryptoService {
     // More crypto methods to interpret changes
     private CryptoDTO toDTO(CryptoAsset c) {
         return new CryptoDTO(c.getId(), c.getName(), c.getSymbol(),
-                c.getPriceUsd(), c.getMarketCapUsd(), c.getVolume24hUsd(), c.getPercentChange24h(), c.getLastUpdated());
+                c.getPriceUsd(), c.getMarketCap(),
+                c.getChangePercent24h(), c.getLastUpdated());
     }
-
 }

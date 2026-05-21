@@ -23,12 +23,12 @@ public class NewsController {
 
     @GetMapping("/{id}")
     public ResponseEntity<NewsDTO> getNewsById(@PathVariable Long id) {
-        return ResponseEntity.ok(newsService.getNewsById(id));
+        return ResponseEntity.ok(newsService.getById(id));
     }
 
     @PostMapping("/refresh/{id}")
-    public ResponseEntity<Void> refreshNews(@PathVariable String id) {
-        newsService.fetchAndSaveFromAPI(id);
+    public ResponseEntity<Void> refreshNews() {
+        newsService.fetchAndSaveFromAPI();
         return ResponseEntity.noContent().build();
     }
 }

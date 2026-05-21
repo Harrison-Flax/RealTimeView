@@ -1,10 +1,18 @@
 package com.realtimeview.app.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "news_articles")
+// Have lombok with Spring automate Getters and Setters
+@Getter
+@Setter
+@NoArgsConstructor
 public class NewsArticle {
 
     @Id

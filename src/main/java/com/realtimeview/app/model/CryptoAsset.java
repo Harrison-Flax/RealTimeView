@@ -1,11 +1,20 @@
 package com.realtimeview.app.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "crypto_assets")
+// Have lombok with Spring automate Getters and Setters
+@Getter
+@Setter
+@NoArgsConstructor
 public class CryptoAsset {
 
     @Id
@@ -23,11 +32,11 @@ public class CryptoAsset {
     private BigDecimal priceUsd;
     private BigDecimal marketCap;
     private BigDecimal volume24h;
-    private BigDecimal changePercent24th;
+    private BigDecimal changePercent24h;
 
     // Time of update
     @Column(name = "last_updated")
-    private LocalDate lastUpdated;
+    private LocalDateTime lastUpdated;
 
     // Contructors, getters, and setters
 

@@ -24,13 +24,12 @@ public class CryptoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<CryptoDTO> getCryptoById(@PathVariable Long id) {
-        return ResponseEntity.ok(cryptoService.getCryptoById(id));
+        return ResponseEntity.ok(cryptoService.getById(id));
     }
 
     @PostMapping("/refresh/{id}")
-    public ResponseEntity<Void> refreshCrypto(@PathVariable String id) {
-        cryptoService.fetchAndSaveFromAPI(id);
+    public ResponseEntity<Void> refreshCrypto() {
+        cryptoService.fetchAndSaveFromAPI();
         return ResponseEntity.noContent().build();
     }
-
 }

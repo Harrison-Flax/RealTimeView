@@ -38,8 +38,8 @@ public class NewsService {
 
     // More news methods to interpret changes
     private NewsDTO toDTO(NewsArticle n) {
-        return new NewsDTO(n.getId(), n.getTitle(), n.getDescription(),
-                n.getUrl(), n.getPublishedAt());
+        return new NewsDTO(n.getId(), n.getHeadline(), n.getSummary(),
+                n.getSource(), n.getUrl(), n.getCategory(), n.getPublishedAt());
     }
 
 }

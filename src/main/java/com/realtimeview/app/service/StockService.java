@@ -38,7 +38,7 @@ public class StockService {
     // More stock methods to interpret changes
     private StockDTO toDTO(StockIndex s) {
         return new StockDTO(s.getTicker(), s.getName(), s.getPrice(),
-                s.getChange(), s.getChangePercent(), s.getLastUpdate());
+                s.getChange(), s.getChangePercent(), s.getLastUpdated());
     }
 
 }
