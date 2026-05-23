@@ -27,6 +27,7 @@ public class StockService {
     @Value("${alphavantage.api.key}")
     private String apiKey;
 
+    // Initializing all the variables in the constructor
     public StockService(StockRepository stockRepository, ObjectMapper objectMapper) {
         this.stockRepository = stockRepository;
         this.restClient = RestClient.create();
