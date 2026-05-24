@@ -27,9 +27,9 @@ public class CryptoController {
         return ResponseEntity.ok(cryptoService.getById(id));
     }
 
-    @PostMapping("/refresh/{id}")
-    public ResponseEntity<Void> refreshCrypto() {
-        cryptoService.fetchAndSaveFromAPI();
+    @PostMapping("/refresh/{symbol}")
+    public ResponseEntity<Void> refreshCrypto(@PathVariable String symbol) {
+        cryptoService.fetchAndSaveFromAPI(symbol);
         return ResponseEntity.noContent().build();
     }
 }
