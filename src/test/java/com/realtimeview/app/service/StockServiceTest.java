@@ -11,9 +11,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 // Need this annotation for Mockito and JUnit cases
@@ -33,7 +36,7 @@ public class StockServiceTest {
     // 1) getAllStocks should return a list
     @Test
     @DisplayName("Return Test: a list is the result")
-    void getAllStocks() {
+    public void getAllStocksIsAList() {
         // Creating two stocks to test with for their tickers
         // ARRANGE
         StockIndex stock1 = new StockIndex();
@@ -61,9 +64,45 @@ public class StockServiceTest {
     }
 
     // 2) getByTicker should throw an exception when a ticker isn't found
+    @Test
+    @DisplayName("Exception Test: when a ticker isn't found")
+    public void getByTickerIsAnExceptionWithoutTicker() {
+        // ARRANGE
+        // Mock repository returns an empty Optional
+        // When the function is called
+        when(stockRepository.findByTicker("FAKE")).thenReturn(Optional.empty());
 
+        // NO ACT HERE
+
+        // ASSERT
+        assertThrows(RuntimeException.class, () -> stockService.getByTicker("FAKE"));
+    }
 
     // 3) getByTicker returns the correct DTO when found
+    @Test
+    @DisplayName("Return Test: a DTO is found when existing")
+    public void getByTickerReturnDTO() {
+        // ARRANGE
+        // Creating a stock with known values
+        StockIndex knownStock = new StockIndex();
 
+        // Setting the known values
+        knownStock.setTicker("AAPL");
+        knownStock.setName("Apple Inc.");
+        knownStock.setPrice(new BigDecimal("312.06"));
 
+        // Mock repository returns it wrapped in Optional.of()
+        // Only when findByTicker("Any Stock") is called
+        when(stockRepository.findByTicker("AAPL")).thenReturn(Optional.of(knownStock));
+
+        // ACT
+        // Call on the stockService function
+        StockDTO result = stockService.getByTicker("AAPL");
+
+        // ASSERT
+        // Check if the attributes line up with the stock
+        assertEquals("AAPL", result.ticker());
+        assertEquals("Apple Inc.", result.name());
+        assertEquals(new BigDecimal("312.06"), result.price());
+    }
 }

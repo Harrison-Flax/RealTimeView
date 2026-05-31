@@ -27,8 +27,8 @@ public class NewsController {
     }
 
     @PostMapping("/refresh/{id}")
-    public ResponseEntity<Void> refreshNews() {
-        newsService.fetchAndSaveFromAPI();
+    public ResponseEntity<Void> refreshNews(@PathVariable String id) {
+        newsService.fetchAndSaveFromAPI(id);
         return ResponseEntity.noContent().build();
     }
 }
