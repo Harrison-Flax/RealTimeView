@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.realtimeview.app.frontend.controller.DashboardController"
+            prefWidth="1200" prefHeight="800">
+
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox spacing="20" style="-fx-padding: 15; -fx-background-color: #1a1a2e;">
+            <Label text="RealTimeView" style="-fx-font-size: 20; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            <!-- Tab buttons to switch between stocks, crypto, news -->
+            <Button text="Stocks" onAction="#showStocks" style="-fx-background-color: #4ecca3; -fx-text-fill: black;"/>
+            <Button text="Crypto" onAction="#showCrypto"/>
+            <Button text="News" onAction="#showNews"/>
+            <Button text="Refresh" onAction="#refreshData"/>
+        </HBox>
+    </top>
+
+    <!-- Main Content Area With TableView For Stocks -->
+    <center>
+        <VBox spacing="10" style="-fx-padding: 20;">
+            <Label fx:id="statusLabel" text="Loading...:" style="-fx-text-fill: gray;"/>
+
+            <TableView fx:id="stockTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="tickerCol" text="Ticker" prefWidth="100"/>
+                    <TableColumn fx:id="nameCol" text="Name" prefWidth="200"/>
+                    <TableColumn fx:id="priceCol" text="Price" prefWidth="120"/>
+                    <TableColumn fx:id="changeCol" text="Change" prefWidth="120"/>
+                    <TableColumn fx:id="changePercentCol" text="Change %" prefWidth="120"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <!-- Status Bar At Bottom -->
+    <bottom>
+        <HBox style="-fx-padding: 10; -fx-background-color; #1a1a2e;">
+            <Label fx:id="lastUpdatedLabel" text="Last updated: --"
+                   style="-fx-text-fill: gray; -fx-font-size: 11;"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
