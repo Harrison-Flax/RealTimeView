@@ -40,7 +40,6 @@ public class DashboardController {
 
     // Handles rendering
     private final ObservableList<StockViewModel> stockData = FXCollections.observableArrayList();
-
     private final HttpClient httpClient = HttpClient.newHttpClient();
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -55,6 +54,8 @@ public class DashboardController {
     }
 
     // Each column needs to be assigned to each respective property on StockViewModel
+    // The stocks should have their info in a table with columns so its neatly organized
+    // And also easy to navigate
     private void setupTableColumns() {
         tickerCol.setCellValueFactory(cell -> cell.getValue().tickerProperty());
         nameCol.setCellValueFactory(cell -> cell.getValue().nameProperty());
@@ -117,18 +118,19 @@ public class DashboardController {
 
     @FXML
     private void showCrypto() {
-        // Call on the function to load in crypto from backend
+        // Logic to load in crypto from backend
 
     }
 
     @FXML
     private void showNews() {
-        // Call on the function to load in news from backend
+        // Logic to load in news from backend
 
     }
 
     @FXML
     private void refreshData() {
+        // Data is refreshed from loadStocks
         loadStocks();
     }
 }
