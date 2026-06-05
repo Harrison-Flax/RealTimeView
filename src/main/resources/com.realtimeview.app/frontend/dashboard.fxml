@@ -19,7 +19,7 @@
         </HBox>
     </top>
 
-    <!-- Main Content Area With TableView For Stocks -->
+    <!-- Main Content Area With Tables -->
     <center>
         <VBox spacing="10" style="-fx-padding: 20;">
             <Label fx:id="statusLabel" text="Loading...:" style="-fx-text-fill: gray;"/>
@@ -31,6 +31,26 @@
                     <TableColumn fx:id="priceCol" text="Price" prefWidth="120"/>
                     <TableColumn fx:id="changeCol" text="Change" prefWidth="120"/>
                     <TableColumn fx:id="changePercentCol" text="Change %" prefWidth="120"/>
+                </columns>
+            </TableView>
+
+            <TableView fx:id="cryptoTable" visible="false" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="nameCryptoCol" text="Name" prefWidth="100"/>
+                    <TableColumn fx:id="symbolCryptoCol" text="Symbol" prefWidth="200"/>
+                    <TableColumn fx:id="priceUsdCryptoCol" text="Price" prefWidth="120"/>
+                    <TableColumn fx:id="marketCapCryptoCol" text="Market Cap" prefWidth="120"/>
+                    <TableColumn fx:id="changePercent24hCryptoCol" text="Change %" prefWidth="120"/>
+                </columns>
+            </TableView>
+
+            <TableView fx:id="newsTable" visible="false" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="headlineCol" text="Headline" prefWidth="100"/>
+                    <TableColumn fx:id="summaryCol" text="Summary" prefWidth="200"/>
+                    <TableColumn fx:id="sourceCol" text="Source" prefWidth="120"/>
+                    <TableColumn fx:id="categoryCol" text="Category" prefWidth="120"/>
+                    <TableColumn fx:id="publishedAtCol" text="Published At" prefWidth="120"/>
                 </columns>
             </TableView>
         </VBox>
