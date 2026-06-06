@@ -11,7 +11,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/realtimeview/app/frontend/dashboard.fxml")
+                MainApp.class.getResource("dashboard.fxml")
         );
 
         Scene scene = new Scene(loader.load(), 1200, 800);

@@ -43,6 +43,7 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.46</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -88,6 +89,10 @@
 				<version>0.0.8</version>
 				<configuration>
 					<mainClass>com.realtimeview.app.frontend.MainApp</mainClass>
+					<options>
+						<option>--add-opens</option>
+						<option>java.base/java.lang.reflect=ALL-UNNAMED</option>
+					</options>
 				</configuration>
 			</plugin>
 		</plugins>
