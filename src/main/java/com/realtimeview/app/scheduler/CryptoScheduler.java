@@ -1,12 +1,15 @@
 package com.realtimeview.app.scheduler;
 
 import com.realtimeview.app.service.CryptoService;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class CryptoScheduler {
     // For Logging
     private static final Logger logger = LoggerFactory.getLogger(CryptoScheduler.class);

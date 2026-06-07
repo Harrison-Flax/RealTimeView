@@ -1,12 +1,15 @@
 package com.realtimeview.app.scheduler;
 
 import com.realtimeview.app.service.StockService;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.util.List;
 import org.slf4j.Logger;
+import org.springframework.stereotype.Component;
 
+@Component
 public class StockScheduler {
     // For Logging
     private static final Logger logger = LoggerFactory.getLogger(StockScheduler.class);

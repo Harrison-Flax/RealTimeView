@@ -13,9 +13,9 @@
             <Label text="RealTimeView" style="-fx-font-size: 20; -fx-text-fill: white; -fx-font-weight: bold;"/>
             <!-- Tab buttons to switch between stocks, crypto, news -->
             <Button text="Stocks" onAction="#showStocks" style="-fx-background-color: #4ecca3; -fx-text-fill: black;"/>
-            <Button text="Crypto" onAction="#showCrypto"/>
-            <Button text="News" onAction="#showNews"/>
-            <Button text="Refresh" onAction="#refreshData"/>
+            <Button text="Crypto" onAction="#showCrypto" style="-fx-background-color: #4ecca3; -fx-text-fill: black;"/>
+            <Button text="News" onAction="#showNews" style="-fx-background-color: #4ecca3; -fx-text-fill: black;"/>
+            <Button text="Refresh" onAction="#refreshData" style="-fx-background-color: #4ecca3; -fx-text-fill: black;"/>
         </HBox>
     </top>
 
@@ -34,7 +34,7 @@
                 </columns>
             </TableView>
 
-            <TableView fx:id="cryptoTable" visible="false" VBox.vgrow="ALWAYS">
+        <TableView fx:id="cryptoTable" visible="false" VBox.vgrow="ALWAYS">
                 <columns>
                     <TableColumn fx:id="nameCryptoCol" text="Name" prefWidth="100"/>
                     <TableColumn fx:id="symbolCryptoCol" text="Symbol" prefWidth="200"/>
