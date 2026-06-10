@@ -1,7 +1,7 @@
 package com.realtimeview.app.scheduler;
 
 import com.realtimeview.app.service.CryptoService;
-import lombok.RequiredArgsConstructor;
+import com.realtimeview.app.service.TrackedSymbolsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -16,8 +16,11 @@ public class CryptoScheduler {
 
     private final CryptoService cryptoService;
 
-    public CryptoScheduler(CryptoService cryptoService) {
+    private final TrackedSymbolsService trackedSymbolsService;
+
+    public CryptoScheduler(CryptoService cryptoService, TrackedSymbolsService trackedSymbolsService) {
         this.cryptoService = cryptoService;
+        this.trackedSymbolsService = trackedSymbolsService;
     }
 
     // Scheduling for real time updates
@@ -25,8 +28,7 @@ public class CryptoScheduler {
     @Scheduled(fixedRate = 60000)
     public void refreshCrypto() {
         // Need to track a list of coins
-        // Starting with 5 for now
-        List<String> coinList = List.of("BTC", "ETH", "SOL", "ADA", "XRP");
+        List<String> coinList = trackedSymbolsService.getActiveByType("CRYPTO");
 
         // Iterate through each of the tickers
         for (String coin : coinList) {

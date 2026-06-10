@@ -1,8 +1,7 @@
 package com.realtimeview.app.scheduler;
 
-import com.realtimeview.app.service.CryptoService;
 import com.realtimeview.app.service.NewsService;
-import lombok.RequiredArgsConstructor;
+import com.realtimeview.app.service.TrackedSymbolsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -17,8 +16,11 @@ public class NewsScheduler {
 
     private final NewsService newsService;
 
-    public NewsScheduler(NewsService newsService) {
+    private final TrackedSymbolsService trackedSymbolsService;
+
+    public NewsScheduler(NewsService newsService, TrackedSymbolsService trackedSymbolsService) {
         this.newsService = newsService;
+        this.trackedSymbolsService = trackedSymbolsService;
     }
 
     // Scheduling for real time updates
@@ -27,7 +29,7 @@ public class NewsScheduler {
     public void refreshNews() {
         // Need to track a list of coins
         // Starting with 5 for now
-        List<String> categories = List.of("business", "technology", "general");
+        List<String> categories = trackedSymbolsService.getActiveByType("NEWS");
 
         // Iterate through each of the tickers
         for (String category : categories) {

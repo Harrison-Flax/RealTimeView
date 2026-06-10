@@ -1,7 +1,7 @@
 package com.realtimeview.app.scheduler;
 
 import com.realtimeview.app.service.StockService;
-import lombok.RequiredArgsConstructor;
+import com.realtimeview.app.service.TrackedSymbolsService;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 
@@ -16,8 +16,11 @@ public class StockScheduler {
 
     private final StockService stockService;
 
-    public StockScheduler(StockService stockService) {
+    private final TrackedSymbolsService trackedSymbolsService;
+
+    public StockScheduler(StockService stockService, TrackedSymbolsService trackedSymbolsService) {
         this.stockService = stockService;
+        this.trackedSymbolsService = trackedSymbolsService;
     }
 
     // Scheduling for real time updates
@@ -26,7 +29,7 @@ public class StockScheduler {
     public void refreshStocks() {
         // Need to track a list of tickers
         // Starting with 5 for now
-        List<String> tickerList = List.of("AAPL", "GOOGL", "MSFT", "NVDA", "AMZN");
+        List<String> tickerList = trackedSymbolsService.getActiveByType("STOCK");
 
         // Iterate through each of the tickers
         for (String ticker : tickerList) {
