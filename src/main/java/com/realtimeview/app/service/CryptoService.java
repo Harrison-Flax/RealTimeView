@@ -16,7 +16,6 @@ import java.util.List;
 
 @Service
 public class CryptoService {
-
     private final CryptoRepository cryptoRepository;
     // RestClient
     private final RestClient restClient;

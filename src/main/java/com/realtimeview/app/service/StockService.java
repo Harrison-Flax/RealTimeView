@@ -15,7 +15,6 @@ import java.util.List;
 
 @Service
 public class StockService {
-
     // To access the stock repository
     private final StockRepository stockRepository;
     // RestClient
