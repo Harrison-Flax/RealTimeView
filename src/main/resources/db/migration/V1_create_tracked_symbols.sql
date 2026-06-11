@@ -1,0 +1,7 @@
+CREATE TABLE tracked_symbols (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    symbol VARCHAR(16) NOT NULL,
+    type VARCHAR(16) NOT NULL,
+    active BOOLEAN NOT NULL,
+    added_at TIMESTAMP NOT NULL
+)

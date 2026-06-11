@@ -1,0 +1,16 @@
+INSERT INTO tracked_symbols (symbol, type, active, added_at)
+VALUES ('AAPL', 'STOCK', true, NOW()),
+('GOOGL', 'STOCK', true, NOW()),
+('AMZN', 'STOCK', true, NOW()),
+('MSFT', 'STOCK', true, NOW()),
+('TSLA', 'STOCK', true, NOW()),
+('BTC', 'CRYPTO', true, NOW()),
+('ETH', 'CRYPTO', true, NOW()),
+('XRP', 'CRYPTO', true, NOW()),
+('LTC', 'CRYPTO', true, NOW()),
+('BCH', 'CRYPTO', true, NOW()),
+('business', 'NEWS', true, NOW()),
+('technology', 'NEWS', true, NOW()),
+('general', 'NEWS', true, NOW()),
+('health', 'NEWS', true, NOW()),
+('sports', 'NEWS', true, NOW());

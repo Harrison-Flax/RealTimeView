@@ -55,16 +55,27 @@ public class StockService {
 
         // Global Quote returns the latest info
         String url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + ticker + "&apikey=" + apiKey;
+        String url2 = "https://www.alphavantage.co/query?function=OVERVIEW&symbol=" + ticker + "&apikey=" + apiKey;
 
         // RestClient GET request
-        String result = restClient.get()
+        // Price Data
+        String quoteResult = restClient.get()
                 .uri(url)
                 .retrieve()
                 .body(String.class);
+
+        // Company Data
+        String overviewResult = restClient.get()
+                .uri(url2)
+                .retrieve()
+                .body(String.class);
+
         try {
             // Parsing the JSON string
-            JsonNode rootNode = objectMapper.readTree(result);
-            JsonNode quoteNode = rootNode.path("Global Quote");
+            JsonNode quoteNode = objectMapper.readTree(quoteResult).path("Global Quote");
+
+            JsonNode overviewNode = objectMapper.readTree(overviewResult);
+            String name = overviewNode.path("Name").asText();
 
             // Extracting each of the fields separately
             BigDecimal price = new BigDecimal(quoteNode.path("05. price").asText());
@@ -80,8 +91,7 @@ public class StockService {
 
             // Setting the fields with their variables
             stock.setTicker(ticker);
-            // Placeholder for now
-            stock.setName(ticker);
+            stock.setName(name);
             stock.setPrice(price);
             stock.setChange(change);
             stock.setChangePercent(changePercent);
