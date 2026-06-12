@@ -122,14 +122,27 @@ public class DashboardController {
     // A function to determine which table is visible to user
     // Views should be able to switch instead of only viewing everything at once
     private void showOnlyTable(String view) {
+        // Stocks, crypto, and news tables are all set to the same format
+        // So the table is aligned within the page
         stockTable.setVisible(false);
+        stockTable.setManaged(false);
         cryptoTable.setVisible(false);
+        cryptoTable.setManaged(false);
         newsTable.setVisible(false);
+        newsTable.setManaged(false);
 
+        // Views should be able to switch instead of only viewing everything at once
+        // And aligned within the page
         switch (view) {
-            case "stocks" -> stockTable.setVisible(true);
-            case "crypto" -> cryptoTable.setVisible(true);
-            case "news" -> newsTable.setVisible(true);
+            case "stocks" -> {
+                stockTable.setVisible(true); stockTable.setManaged(true);
+            }
+            case "crypto" -> {
+                cryptoTable.setVisible(true); cryptoTable.setManaged(true);
+            }
+            case "news" -> {
+                newsTable.setVisible(true); newsTable.setManaged(true);
+            }
         }
     }
 
