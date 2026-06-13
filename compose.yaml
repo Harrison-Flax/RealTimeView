@@ -1,0 +1,44 @@
+# Referenced from Docker Docs
+
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - 8080:8080
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/realtimeview
+      - SPRING_DATASOURCE_USERNAME=flax
+      - SPRING_DATASOURCE_PASSWORD_FILE=/run/secrets/db-password
+    secrets:
+      - db-password
+
+  db:
+    image: postgres:18
+    restart: always
+    user: postgres
+    secrets:
+      - db-password
+    volumes:
+      - db-data:/var/lib/postgresql
+    environment:
+      - POSTGRES_DB=realtimeview
+      - POSTGRES_USER=flax
+      - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
+    expose:
+      - 5432
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "flax", "-d", "realtimeview" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  db-data:
+
+secrets:
+  db-password:
+    file: db/password.txt
