@@ -13,4 +13,5 @@ VALUES ('AAPL', 'STOCK', true, NOW()),
 ('technology', 'NEWS', true, NOW()),
 ('general', 'NEWS', true, NOW()),
 ('health', 'NEWS', true, NOW()),
-('sports', 'NEWS', true, NOW());
+('sports', 'NEWS', true, NOW())
+);

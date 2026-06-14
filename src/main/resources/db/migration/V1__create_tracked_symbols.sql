@@ -4,4 +4,4 @@ CREATE TABLE tracked_symbols (
     type VARCHAR(16) NOT NULL,
     active BOOLEAN NOT NULL,
     added_at TIMESTAMP NOT NULL
-)
+);
