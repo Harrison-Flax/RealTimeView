@@ -29,9 +29,10 @@ public class TrackedSymbols {
     @Column(nullable = false)
     private String type;
 
+    @Column(nullable = false)
     private boolean active;
 
     // Timestamp for SQL
-    @Column(name = "added_at")
+    @Column(name = "added_at", nullable = false)
     private LocalDateTime addedAt;
 }

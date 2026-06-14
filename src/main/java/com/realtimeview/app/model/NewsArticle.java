@@ -32,7 +32,7 @@ public class NewsArticle {
     @Column(name = "published_at")
     private LocalDateTime publishedAt;
 
-    @Column(name = "saved_by_user")
+    @Column(name = "saved_by_user", nullable = false)
     private boolean savedByUser = false;
 
     // Constructors, getters, and setters
