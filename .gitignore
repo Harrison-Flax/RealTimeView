@@ -32,8 +32,8 @@ build/
 ### VS Code ###
 .vscode/
 
-### Properties ###
-src/main/resources/application.properties
+### Secrets ###
+.env
 
 ### Docker ###
 db/password.txt
