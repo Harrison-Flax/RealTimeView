@@ -1,0 +1,3 @@
+ALTER TABLE news_articles
+    ALTER COLUMN headline TYPE VARCHAR(512),
+    ALTER COLUMN source TYPE VARCHAR(512);

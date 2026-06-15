@@ -38,6 +38,8 @@ public class StockScheduler {
                 // Calling the method to update the ticker info
                 stockService.fetchAndSaveFromAPI(ticker);
                 logger.info("Successfully refreshed: {}", ticker);
+                // 15-second delay period due to free tier constraints
+                Thread.sleep(15000);
             } catch (Exception e) {
                 logger.error("Failed to refresh {}: {}", ticker, e.getMessage());
             }
