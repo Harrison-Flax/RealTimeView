@@ -64,18 +64,9 @@ public class StockService {
                 .retrieve()
                 .body(String.class);
 
-        // Company Data
-        String overviewResult = restClient.get()
-                .uri(url2)
-                .retrieve()
-                .body(String.class);
-
         try {
             // Parsing the JSON string
             JsonNode quoteNode = objectMapper.readTree(quoteResult).path("Global Quote");
-
-            JsonNode overviewNode = objectMapper.readTree(overviewResult);
-            String name = overviewNode.path("Name").asText();
 
             // Extracting each of the fields separately
             BigDecimal price = new BigDecimal(quoteNode.path("05. price").asText());
@@ -89,9 +80,18 @@ public class StockService {
             StockIndex stock = stockRepository.findByTicker(ticker)
                     .orElse(new StockIndex());
 
+            // Company name should be fetched only if it's not present yet
+            if (stock.getName() == null || stock.getName().isBlank()) {
+                String overviewResult = restClient.get()
+                        .uri(url2)
+                        .retrieve()
+                        .body(String.class);
+                JsonNode overviewNode = objectMapper.readTree(overviewResult);
+                stock.setName(overviewNode.path("Name").asText());
+            }
+
             // Setting the fields with their variables
             stock.setTicker(ticker);
-            stock.setName(name);
             stock.setPrice(price);
             stock.setChange(change);
             stock.setChangePercent(changePercent);

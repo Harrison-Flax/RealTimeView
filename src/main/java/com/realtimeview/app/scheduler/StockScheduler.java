@@ -24,8 +24,8 @@ public class StockScheduler {
     }
 
     // Scheduling for real time updates
-    // Possible with Spring and a fixed rate of 60 seconds
-    @Scheduled(fixedRate = 60000)
+    // Possible with Spring and a fixed rate
+    @Scheduled(fixedRate = 18000000)
     public void refreshStocks() {
         // Need to track a list of tickers
         // Starting with 5 for now

@@ -13,8 +13,14 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/realtimeview
       - SPRING_DATASOURCE_USERNAME=flax
       - SPRING_DATASOURCE_PASSWORD_FILE=/run/secrets/db-password
+      - COINMARKETCAP_API_KEY_FILE=/run/secrets/coinmarketcap-key
+      - NEWSAPI_KEY_FILE=/run/secrets/newsapi-key
+      - ALPHAVANTAGE_KEY_FILE=/run/secrets/alphavantage-key
     secrets:
       - db-password
+      - coinmarketcap-key
+      - newsapi-key
+      - alphavantage-key
 
   db:
     image: postgres:18
@@ -42,3 +48,9 @@ volumes:
 secrets:
   db-password:
     file: db/password.txt
+  coinmarketcap-key:
+    file: db/coinmarketcap-key.txt
+  newsapi-key:
+    file: db/newsapi-key.txt
+  alphavantage-key:
+    file: db/alphavantage-key.txt

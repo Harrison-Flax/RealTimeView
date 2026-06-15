@@ -39,3 +39,6 @@ build/
 
 ### Docker ###
 db/password.txt
+db/coinmarketcap-key.txt
+db/newsapi-key.txt
+db/alphavantage-key.txt
